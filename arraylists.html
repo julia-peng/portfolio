@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title> Julia Peng | Tutorials</title>
+    <link rel="stylesheet" href="main.css">
+    <link rel="icon" href="images/penguin-icon.png" type="image/x-icon">
+
+</head>
+
+<body>
+    <div class="sidenav">
+        <a href="oop.html">OOP</a><br>
+        <a href="arrays.html">Arrays</a><br>
+        <a class="active" href="arraylists.html">ArrayLists</a><br>
+        <a href="searchAndSort.html">Searching and
+            Sorting</a><br>
+        <a href="recursion.html">Recursion</a><br>
+    </div>
+    <div class="homeicon">
+        <a href="index.html"><img alt="index" src="images/home-icon.png" style="width:50px;"></a>
+    </div>
+    <div class="topnav">
+        <a href="ResumeFinal.pdf" target="_blank">Resume</a>
+        <a href="projects.html">Projects</a>
+        <a class="active" href="tutorials.html">Tutorials</a>
+    </div>
+
+    <div class="content">
+        <div class="page-content">
+            <h1>ArrayLists</h1>
+            <p>ArrayLists are a form of upgraded array. Though arrays are an extremely valuable tool, they have some
+                major limitations in Java, such as non-alterable length, difficulty adding data points and issues
+                involving data storage. ArrayList objects provide a solution to these limitations. Using methods from
+                the ArrayList class in the <code>java.util</code> package, data points can be added at any point, even
+                beyond the
+                ArrayList's original size.<br>
+                ArrayLists can be declared as follows:</p>
+            <code><pre>
+ArrayList&lt;E&gt; myList = new ArrayList&lt;E&gt;(); //'E' is used to represent a generic data type.
+                                          //With this declaration, myList can store 
+                                          //objects of any type.
+
+//declaring an Integer ArrayList
+ArrayList&lt;Integer&gt; intList = new ArrayList&lt;Integer&gt;(); //note that ArrayLists can only store
+                                                       //objects, so the declaration must use 
+                                                       //the equivalent wrapper class for ints 
+                                                       //(Integers).
+            </pre></code>
+            <p>
+                Let's revisit the unique capabilities of the ArrayList. Its most notable ability is the ability to
+                'insert' data at any given point with one simple method (<code>add()</code>).<br>
+                Suppose the normal array <code>myArr</code> can be represented by the following table.
+            </p>
+            <table style="width:100%">
+                <tr>
+                    <th>Index</th>
+                    <th>0</th>
+                    <th>1</th>
+                    <th>2</th>
+                    <th>3</th>
+                    <th>4</th>
+                </tr>
+                <tr>
+                    <td>Data</td>
+                    <td>72</td>
+                    <td>63</td>
+                    <td>75</td>
+                    <td>86</td>
+                    <td>93</td>
+                </tr>
+            </table>
+            <p>
+                If the programmer were to want to insert a new data point into the array, bringing the total size up to
+                6, the steps would be quite long-winded. First, they would have to create a new array with a size of 6,
+                insert all the data points up to the location of the new intended data point, add the new point and then
+                insert the remaining data points from the new array. As you can see this is a long-winded process and
+                also stores the new data in a new location.<br>
+                ArrayLists eliminate such trouble. by using <code>add()</code>, the previously described process is
+                fully executed through the built-in method, reducing hassle.<br>
+                See the table below for a look into how <code>add()</code> works.</p>
+            <table style="width:100%">
+                <tr>
+                    <th>Index</th>
+                    <th>0</th>
+                    <th>1</th>
+                    <th>2</th>
+                    <th>3</th>
+                    <th>4</th>
+                </tr>
+                <tr>
+                    <td>Data</td>
+                    <td>72</td>
+                    <td>63</td>
+                    <td>75</td>
+                    <td>86</td>
+                    <td>93</td>
+                </tr>
+            </table>
+            <code><pre>
+myArr.add(2, 36);</pre></code>
+            <table style="width:100%">
+                <tr>
+                    <th>Index</th>
+                    <th>0</th>
+                    <th>1</th>
+                    <th>2</th>
+                    <th>3</th>
+                    <th>4</th>
+                    <th>5</th>
+                </tr>
+                <tr>
+                    <td>Data</td>
+                    <td>72</td>
+                    <td>63</td>
+                    <td><strong>36</strong></td>
+                    <td>75</td>
+                    <td>86</td>
+                    <td>93</td>
+                </tr>
+            </table>
+            <p>A common mistake made when using ArrayLists is not being mindful of the storage type of ArrayLists - they
+                store <strong>objects</strong>, not primitive data types. This means that, when accessing ArrayLists
+                with Integers or Doubles, some of the operations that would have worked with these values in the form of
+                primitive data types do not work in the context of the block-casted values in the ArrayList.
+            </p>
+            <h4>Citations</h4>
+            <p>ICS4U course content; Ms. Krasteva, Valentina<br>
+                <a
+                    href="https://www.w3schools.com/java/java_arraylist.asp">https://www.w3schools.com/java/java_arraylist.asp</a>
+            </p>
+        </div>
+    </div>
+    <nobr>
+        <div class="footer">
+            <div class="footer-bottom"><strong>&lt;&lt;&lt; &copy; Julia Peng 2024 &gt;&gt;&gt;</strong>
+                <a href="https://www.linkedin.com/in/juliaspeng" target="_blank">
+                    <img alt="linkedin" src="images/linkedin-icon.svg" style="width:40px"></a>
+                <a href="https://github.com/julia-peng" target="_blank">
+                    <img alt="github" src="images/github-icon.svg" style="width:40px"></a>
+                <a href="https://www.instagram.com/julia__peng" target="_blank">
+                    <img alt="instagram" src="images/instagram-icon.svg" style="width:40px"></a>
+            </div>
+        </div>
+    </nobr>
+</body>
+
+</html>

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title> Julia Peng | Tutorials</title>
+    <link rel="stylesheet" href="main.css">
+    <link rel="icon" href="images/penguin-icon.png" type="image/x-icon">
+
+</head>
+
+<body>
+    <div class="sidenav">
+        <a href="oop.html">OOP</a><br>
+        <a class="active" href="arrays.html">Arrays</a><br>
+        <a href="arraylists.html">ArrayLists</a><br>
+        <a href="searchAndSort.html">Searching and
+            Sorting</a><br>
+        <a href="recursion.html">Recursion</a><br>
+    </div>
+    <div class="homeicon">
+        <a href="index.html"><img alt="index" src="images/home-icon.png" style="width:50px;"></a>
+    </div>
+    <div class="topnav">
+        <a href="ResumeFinal.pdf" target="_blank">Resume</a>
+        <a href="projects.html">Projects</a>
+        <a class="active" href="tutorials.html">Tutorials</a>
+    </div>
+
+    <div class="content">
+        <div class="page-content">
+            <h1>Arrays</h1>
+            <h2>1D Arrays</h2>
+            <p>Arrays provide an easy way to declare and share closely related data. Take the following example,
+                intended to store the marks of every student in a class: </p>
+            <code><pre>
+int mark1 = 50;
+int mark2 = 78;
+int mark3 = 92;
+int mark4 = 78;
+int mark5 = 85;</pre></code>
+            <p>
+                As you can see, declaring an individual variable for each student is tedious and disorganized - the
+                programmer would have to access each student's mark through its unique reference variable. Arrays
+                provide an easy solution to this, allowing the programmer to group all of these data points under one
+                name and location.</p>
+            <code>int[] allMarks = {50, 78, 92, 78, 85};</code>
+            <p>After storing the data under the shared reference variable allMarks, each data point can be accessed
+                using its array index (<code>allMarks[0] = 50</code>, <code>allMarks[1] = 78</code>, etc.). This is a
+                more organized way of
+                storing the data. Additionally, another major benefit of arrays is ease of access. Since data points are
+                accessed through data indexes, by using a for or while loop, the information can be accessed with high
+                optimization.</p>
+
+            <code><pre>
+//example code for printing each point in an array
+for(int i = 0 ; i &lt; array.length ; i++) {
+    System.out.println(array[i]);
+} </pre></code>
+            <p>A common mistake made when using arrays is not being mindful of the arrays indexes. Remember - indexes
+                start at 0, so that means the index of the last element in the arary will be
+                <code>array.length-1</code>. This error comes out most often in automation, when the bounds of a loop
+                are not properly adjusted to the array it is meant to iterate through.</p>
+            <br>
+            <hr>
+            <h2>More Arrays</h2>
+            <h3>2d Arrays</h3>
+            <p>2d arrays can be thought of as an array of arrays. Let us consider the marking example again. Say that,
+                instead of being created to represent one single classroom's grades, the programmer would like to create
+                an array to represent all classes within a school.
+                This can be done through the use of a 2D array. Using the principle of an 'array of arrays', an
+                all-encompassing array can be created to contain the arrays containing each classroom's grades. Thus,
+                the program has stored each student's marks in a 1D array representing a classroom. This classroom array
+                is now stored in a 2D array representing the school as a whole.
+            </p>
+
+            <code><pre>
+//declaration of 2D array holding a school's marks, organized into four classrooms
+int[][] wlmacMarks = { {50, 78, 92, 78, 85},    //class 1
+                     {93, 36, 75, 66, 89},      //class 2
+                     {89, 45, 62, 59, 99},      //class 3
+                     {94, 56, 83, 45, 87} }     //class 4</pre></code>
+            <br>
+            <hr>
+            <h3>Parallel Arrays</h3>
+            <p>Parallel arrays are separate arrays with corresponding data stored at the same data indices. For example,
+                if there were two arrays all-encompassing one with names and one with marks, a parallel array would
+                store one student's name at <code>nameArr[2]</code> and their mark at <code>markArr[2]</code>.</p>
+            <code><pre>String[] nameArr = {"Abraham", "Ben", "Charlie"};
+int[] markArr = {100, 66, 34}; //the two different data types are stored at the same 
+                               //index in each array</pre></code>
+            <h4>Why choose parallel arrays?</h4>
+            <p>Indeed, corresponding data could be stored in 2D arrays. However, an advantage provided by parallel
+                arrays is their ability to store and organize data that differ in data type, something that is not
+                achievable through 2D arrays. For example, if one wanted to store a student's grade and name in a 2D
+                array, it would not be very practical as the two differing data types (<code>Strings</code> and
+                <code>ints</code>) would not be
+                able to be stored in the same array without parsing. Thus, parallel arrays provide a useful tool here
+                due to their ability to store corresponding data in two different arrays with differing data types.
+            </p>
+            <h4>Citations</h4>
+            <p>ICS4U course content; Ms. Krasteva, Valentina<br>
+                <a
+                    href="https://docs.oracle.com/javase/tutorial/java/nutsandbolts/arrays.html">https://docs.oracle.com/javase/tutorial/java/nutsandbolts/arrays.html</a><br>
+                <a
+                    href="https://www.simplilearn.com/tutorials/data-structure-tutorial/two-dimensional-arrays">https://www.simplilearn.com/tutorials/data-structure-tutorial/two-dimensional-arrays</a><br>
+                <a
+                    href="https://www.geeksforgeeks.org/parallel-array/">https://www.geeksforgeeks.org/parallel-array/</a>
+            </p>
+        </div>
+        <nobr>
+            <div class="footer">
+                <div class="footer-bottom"><strong>&lt;&lt;&lt; &copy; Julia Peng 2024 &gt;&gt;&gt;</strong>
+                    <a href="https://www.linkedin.com/in/juliaspeng" target="_blank">
+                        <img alt="linkedin" src="images/linkedin-icon.svg" style="width:40px"></a>
+                    <a href="https://github.com/julia-peng" target="_blank">
+                        <img alt="github" src="images/github-icon.svg" style="width:40px"></a>
+                    <a href="https://www.instagram.com/julia__peng" target="_blank">
+                        <img alt="instagram" src="images/instagram-icon.svg" style="width:40px"></a>
+                </div>
+            </div>
+        </nobr>
+    </div>
+</body>
+
+</html>

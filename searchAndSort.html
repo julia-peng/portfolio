@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title> Julia Peng | Tutorials</title>
+    <link rel="stylesheet" href="main.css">
+    <link rel="icon" href="images/penguin-icon.png" type="image/x-icon">
+
+</head>
+<div class="sidenav">
+    <a href="oop.html">OOP</a><br>
+    <a href="arrays.html">Arrays</a><br>
+    <a href="arraylists.html">ArrayLists</a><br>
+    <a class="active" href="searchAndSort.html">Searching and
+        Sorting</a><br>
+    <a href="recursion.html">Recursion</a><br>
+</div>
+<div class="homeicon">
+    <a href="index.html"><img alt="index" src="images/home-icon.png" style="width:50px;"></a>
+</div>
+<div class="topnav">
+    <a href="ResumeFinal.pdf" target="_blank">Resume</a>
+    <a href="projects.html">Projects</a>
+    <a class="active" href="tutorials.html">Tutorials</a>
+</div>
+
+<body>
+    <div class="content">
+        <div class="page-content">
+            <h1>Searching and Sorting</h1>
+            <h2>Searching</h2>
+            <p>Searching is the process of locating a specific value within a collection of data. Algorithms are
+                created to make this location process as efficient as possible.<br>
+            </p>
+            <h3>Linear Search</h3>
+            The simplest searching algorithm is a simple linear search, wherein a program iterates through each
+            index in a data collection until it finds its target or reaches the end of the collection, which would
+            indicate that the target value is not present. Though this is simple to program, it is very
+            inefficient.<br></p>
+            <code><pre>//linear search implementation
+public static int linearSearch (int[] input, int target) {
+    for(int i = 0 ; i &lt; input.length ; i++) { //use for loop to iterate through all values in input
+        if(input[i] == target) 
+            return i; //return index of target value
+    }
+    return -1;
+}</code></pre>
+            <h3>Binary Search</h3>
+            <p>
+                An example of a more complex searching algorithm is the binary search, which requires a sorted data
+                collection. It divides the collection in half repeatedly, until it either finds its target or the
+                collection size reaches a size of one. Since the data input is sorted, the algorithm can determine
+                whether the target data point is on the left or right half of the collection. This allows it to
+                eliminate half of the data collection in one pass. This process is repeated, repeated halving the data
+                pool until the target is found or the data pool reaches a size of one.<br>
+                An implementation of binary search can be seen below.
+            </p>
+
+            <code><pre>
+//binary search implementation
+public static int binarySearch(int[] input, int target) {
+    int left = 0;
+    int right = input.length - 1;
+    while (left &lt;= right) {
+        int mid = left + (right - left) / 2;
+        if (input[mid] == target)
+            return mid; // target found at index mid
+        if (input[mid] &lt; target)
+            left = mid + 1;
+        else
+            right = mid - 1;
+    }
+    return -1; //if target cannot be found
+}</pre></code>
+            <hr>
+            <h2>Sorting</h2>
+            <p>Sorting refers to the arrangement of data from least to greatest or vice versa. There are a variety of
+                sorting algorithms available, with varying time complexities and characteristics.<br>
+                An important thing to consider when choosing a sorting algorithm is its time complexity, which is its
+                speed in terms of the number of points in the data collection. Though faster time complexities are more
+                desirable, these sorting algorithms are often harder to implement.<br>
+                Let us examine two sorting algorithms: the bubble sort and the insertion sort.<br>
+                The bubble sort algorithm has a simple premise: it compares each adjacent element in an array, swapping
+                them if it necessary. For example, if the goal were to sort an array from least to greatest, when
+                comparing two adjacent elements, if the first element were greater than the second, the algorithm would
+                swap the two values. This has an effect of 'bubbling' elements, where elements that are far from their
+                intended location get 'bubbled' over to the other side of the array in the temporary variable.<br>
+                The insertion sort is a slightly more sophisticated sorting algorithm, with structures to optimize the
+                time complexity. The premise of this sort is that it first selects the leftmost value as an anchor.
+                Then, it adds the next value in the array, creating a subarray with these two values, ensuring that the
+                values are stored such that the subarray remains sorted. Then, with each expansion of the subarray to
+                include the next data point, the newly introduced data points are inserted into the subarray such that
+                it remains sorted.<br>
+                A Java implementation of the insertion sort can be seen below.
+            </p>
+            <code><pre>public static void insertionSort(int[] input) {
+    for (int j = 1; j &lt; input.length; j++) {
+        //the index for a possible insertion position
+        int possibleIndex = j;
+        while (possibleIndex > 0 && temp &lt; input[possibleIndex - 1]) {
+            input[possibleIndex] = input[possibleIndex - 1];
+            possibleIndex--;
+        }
+    }
+    input[possibleIndex] = temp;
+}</pre></code>
+            <p>A common mistake made in sorting is not being mindful of the input's indexes. Remember - each individual data point is stored at a specific index in the inputted data collection. It is important to try to preserve the connection between the data point and this initial index, such that comparisons can be more easily made.</p>
+            <h4>Citations</h4>
+            <p>ICS4U course content; Ms. Krasteva, Valentina<br>
+                <a
+                    href="https://www.geeksforgeeks.org/binary-search/">https://www.geeksforgeeks.org/binary-search/</a><br>
+                <a
+                    href="https://www.geeksforgeeks.org/linear-search/">https://www.geeksforgeeks.org/linear-search/</a><br>
+                <a
+                    href="https://www.geeksforgeeks.org/insertion-sort/">https://www.geeksforgeeks.org/insertion-sort/</a>
+            </p>
+        </div>
+    </div>
+    <nobr>
+        <div class="footer">
+            <div class="footer-bottom"><strong>&lt;&lt;&lt; &copy; Julia Peng 2024 &gt;&gt;&gt;</strong>
+                <a href="https://www.linkedin.com/in/juliaspeng" target="_blank">
+                    <img alt="linkedin" src="images/linkedin-icon.svg" style="width:40px"></a>
+                <a href="https://github.com/julia-peng" target="_blank">
+                    <img alt="github" src="images/github-icon.svg" style="width:40px"></a>
+                <a href="https://www.instagram.com/julia__peng" target="_blank">
+                    <img alt="instagram" src="images/instagram-icon.svg" style="width:40px"></a>
+            </div>
+        </div>
+    </nobr>
+</body>
+
+</html>

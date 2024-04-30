@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title> Julia Peng | Tutorials</title>
+    <link rel="stylesheet" href="main.css">
+    <link rel="icon" href="images/penguin-icon.png" type="image/x-icon">
+
+</head>
+<div class="sidenav">
+    <a href="oop.html">OOP</a><br>
+    <a href="arrays.html">Arrays</a><br>
+    <a href="arraylists.html">ArrayLists</a><br>
+    <a href="searchAndSort.html">Searching and
+        Sorting</a><br>
+    <a class="active" href="recursion.html">Recursion</a><br>
+</div>
+<div class="homeicon">
+    <a href="index.html"><img alt="index" src="images/home-icon.png" style="width:50px;"></a>
+</div>
+<div class="topnav">
+    <a href="ResumeFinal.pdf" target="_blank">Resume</a>
+    <a href="projects.html">Projects</a>
+    <a class="active" href="tutorials.html">Tutorials</a>
+</div>
+
+
+<body>
+    <div class="content">
+        <div class="page-content">
+            <h1>Recursion</h1>
+            <p>The Oxford Dictionary defines recursion as "the process of repeating a function, each time applying it to
+                the result of the previous stage". Recursion, in the context of Java, accomplishes just this. It solves
+                problems by defining them as increasingly simple components, until a definite answer is found. This
+                definite answer is called the base case. Then, using the base case, the program rebuilds the answer by
+                applying its value to the simplified question.<br>
+                Let us examine recursion using the Fibonacci sequence. First, identify a way to break down the Fibonacci
+                sequencing into simpler parts. The value of the fifth number can be defined as the sum of the fourth and
+                third numbers. This pattern continues down the sequence, with the fourth number being the sum of the
+                third and second numbers and the third being the sum of the second and first numbers. With this, the
+                program has identified its base case, where the values of the first and second numbers in the Fibonacci
+                sequence are known to be 0 and 1.<br>
+                A recursive Java implementation of the Fibonacci sequence can be seen below.<br>
+                F(n) = F(n-1) + F(n-2)
+            </p>
+            <code><pre>public int static fibonacci (int n) {
+    //base case
+    if(n = 1)
+        return 1; //we know that the second number (index 1) in the Fibonacci sequence is 1. Thus, when the
+                  //method is called to find the second number, return 1.
+    else if(n=1)
+        return 0; //we know that the first number (index 0) in the Fibonacci sequence is 0. Thus, when the
+                  //method is called to find the first number, return 0.
+    else //recursive portion
+        return fibonacci(n-1) + fibonacci(n-1); //modelling F(n) = F(n-1) + F(n-2)
+}</pre></code>
+            <p>A common mistake made when using recursion in program is not being mindful of the base case. Since
+                recursive methods backtrack until they hit a definite value, it is crucial to define this definite
+                value. Without defining this, the method undergoes recursion infinitely, throwing a StackOverflowError.
+            </p>
+            <h4>Citations</h4>
+            <p>ICS4U course content; Ms. Krasteva, Valentina<br>
+                <a
+                    href="https://users.cs.utah.edu/~germain/PPS/Topics/recursion.html">https://users.cs.utah.edu/~germain/PPS/Topics/recursion.html</a>
+            </p>
+        </div>
+    </div>
+    <nobr>
+        <div class="footer">
+            <div class="footer-bottom"><strong>&lt;&lt;&lt; &copy; Julia Peng 2024 &gt;&gt;&gt;</strong>
+                <a href="https://www.linkedin.com/in/juliaspeng" target="_blank">
+                    <img alt="linkedin" src="images/linkedin-icon.svg" style="width:40px"></a>
+                <a href="https://github.com/julia-peng" target="_blank">
+                    <img alt="github" src="images/github-icon.svg" style="width:40px"></a>
+                <a href="https://www.instagram.com/julia__peng" target="_blank">
+                    <img alt="instagram" src="images/instagram-icon.svg" style="width:40px"></a>
+            </div>
+        </div>
+    </nobr>
+</body>
+
+</html>

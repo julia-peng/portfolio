@@ -1,0 +1,362 @@
+html {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    background-color: #fcfdf3;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+p {
+    line-height: 1.5;
+}
+
+p br {
+    display: block;
+    content: "";
+    margin-top: 12px;
+}
+
+input[type='checkbox'] {
+    display: none;
+}
+
+
+/*citation for collapsible: https://www.digitalocean.com/community/tutorials/css-collapsible */
+.wrap-collabsible {
+    margin-bottom: 10px;
+}
+
+input[type='checkbox'] {
+    display: none;
+}
+
+.lbl-toggle {
+    display: block;
+    font-size: 1.2rem;
+    text-align: center;
+    padding: 1rem;
+    color: rgb(255, 188, 255);
+    /*color: #A77B0E;*/
+    background: rgb(193, 38, 210);
+    /*background: #FAE042;*/
+    cursor: pointer;
+    border-radius: 7px;
+    transition: all 0.25s ease-out;
+}
+
+.lbl-toggle:hover {
+    color: rgb(133, 8, 160);
+}
+
+.lbl-toggle::before {
+    content: ' ';
+    display: inline-block;
+
+    border-top: 5px solid transparent;
+    border-bottom: 5px solid transparent;
+    border-left: 5px solid currentColor;
+    vertical-align: middle;
+    margin-right: .7rem;
+    transform: translateY(-2px);
+
+    transition: transform .2s ease-out;
+}
+
+.toggle:checked+.lbl-toggle::before {
+    transform: rotate(90deg) translateX(-3px);
+}
+
+.collapsible-content {
+    max-height: 0px;
+    overflow: hidden;
+    transition: max-height .25s ease-in-out;
+}
+
+.toggle:checked+.lbl-toggle+.collapsible-content {
+    max-height: 200vh;
+}
+
+.toggle:checked+.lbl-toggle {
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+.collapsible-content .content-inner {
+    background: rgba(193, 38, 210, .2);
+    border-bottom: 1px solid rgba(193, 38, 210, .45);
+    border-bottom-left-radius: 7px;
+    border-bottom-right-radius: 7px;
+    padding: .5rem 1rem;
+}
+
+.lefttext {
+    color: blue
+}
+
+.homeicon {
+    position: fixed;
+    top: 0;
+    margin-left: 20px;
+    margin-top: 13px;
+    left: 0;
+    z-index: 9999999;
+}
+
+.grid-container {
+    display: flex;
+    width: 100%;
+    overflow: hidden;
+}
+
+.gridhalf {
+    flex: 1;
+    overflow-y: auto;
+    text-align: center;
+    margin-right: 10px;
+}
+
+.griditem {
+    font-size: 11pt;
+    background-color: #f1d2ec;
+    margin-bottom: 10px;
+    padding: 14px 8px;
+    border-top-left-radius: 7px;
+    border-top-right-radius: 7px;
+    border-bottom-left-radius: 7px;
+    border-bottom-right-radius: 7px;
+    border-bottom: 1px solid rgba(193, 38, 210, .45);
+    border-right: 1px solid rgba(193, 38, 210, .45);
+}
+
+.column {
+    float: left;
+    width: 32.5%;
+    padding: 5px;
+}
+
+.row::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+figcaption {
+    text-align: center;
+}
+
+.topnav {
+    margin-left: -10px;
+    margin-top: -10px;
+    height: 78px;
+    background-color: rgb(51, 51, 51);
+    overflow: hidden;
+    z-index: 1;
+    top: 0;
+    position: fixed;
+    width: 100%;
+}
+
+.topnav a {
+    margin: auto;
+    height: 78px;
+    float: right;
+    padding: 24px 15px;
+    background-color: rgb(51, 51, 51);
+    text-align: center;
+    text-decoration: none;
+    font-size: 17px;
+    color: white;
+    line-height: 39px;
+}
+
+.topnav a:hover {
+    padding: 24px 15px;
+    background-color: rgb(200, 200, 200);
+    color: black;
+}
+
+.topnav a.active {
+    padding: 24px 15px;
+    background-color: rgb(193, 38, 210);
+    color: #fcfdf3;
+}
+
+.sidenav-aboutme {
+    height: 100%;
+    position: fixed;
+    top: 68px;
+    text-align: center;
+    left: 0px;
+    background-color: rgb(90, 90, 90);
+    overflow-x: hidden;
+    padding: 8px 0;
+    z-index: 1;
+}
+
+.sidenav-aboutme a {
+    float: right;
+    background-color: rgb(90, 90, 90);
+    text-align: center;
+    width: 100px;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+    color: #fcfdf3;
+}
+
+.sidenav-aboutme a:hover {
+    background-color: rgb(200, 200, 200);
+    color: black;
+    text-align: center;
+}
+
+.sidenav-aboutme a.active {
+    background-color: rgb(193, 38, 210);
+    color: #fcfdf3;
+    text-align: center;
+}
+
+.sidenav {
+    height: 100%;
+    position: fixed;
+    top: 68px;
+    text-align: center;
+    left: 0px;
+    background-color: rgb(90, 90, 90);
+    overflow-x: hidden;
+    padding: 8px 0;
+    z-index: 1;
+}
+
+.sidenav a {
+    float: right;
+    background-color: rgb(90, 90, 90);
+    text-align: center;
+    width: 100px;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+    color: #fcfdf3;
+}
+
+.sidenav a:hover {
+    background-color: rgb(200, 200, 200);
+    color: black;
+    text-align: center;
+}
+
+.sidenav a.active {
+    background-color: rgb(193, 38, 210);
+    color: #fcfdf3;
+    text-align: center;
+}
+
+.content {
+    min-height: 100%;
+    padding-top: 60px;
+    color: black;
+}
+
+.content .page-content {
+    padding-left: 140px;
+    padding-right: 50px;
+    padding-bottom: 20px;
+}
+
+.arrays {
+    padding-left: 59px;
+}
+
+.code-example {
+    background-color: grey;
+    padding: 5px 10px;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.table,
+th,
+td {
+    border: 1px solid black;
+    text-align: center;
+}
+
+
+.dropbtn {
+    background-color: rgb(193, 38, 210);
+    color: blue;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    z-index: 1000;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+    z-index: 1001111;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: blue;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    left: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    z-index: 1000;
+}
+
+.dropdown-content a:hover {
+    background-color: #f1f1f1;
+    z-index: 1000;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+    z-index: 1000;
+}
+
+.dropdown:hover .dropbtn {
+    background-color: #3e8e41;
+    z-index: 1000;
+}
+
+.footer {
+    background-color: #333333;
+    color: #fcfdf3;
+    height: 150px;
+    position: relative;
+    z-index: 100;
+    margin-left: -8px;
+    margin-right: -8px;
+}
+
+.footer .footer-bottom {
+    background-color: #333333;
+    color: #fcfdf3;
+    height: 50px;
+    width: 100%;
+    text-align: center;
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    padding-top: 20px;
+}
+
+.footer img {
+    filter: invert(31%) sepia(63%) saturate(4260%) hue-rotate(278deg) brightness(86%) contrast(106%);
+    margin-left: 10px;
+    vertical-align: middle;
+}

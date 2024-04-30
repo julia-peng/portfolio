@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title> Julia Peng | Tutorials</title>
+    <link rel="stylesheet" href="main.css">
+    <link rel="icon" href="images/penguin-icon.png" type="image/x-icon">
+
+</head>
+
+<body>
+    <div class="sidenav">
+        <a class="active" href="oop.html">OOP</a><br>
+        <a href="arrays.html">Arrays</a><br>
+        <a href="arraylists.html">ArrayLists</a><br>
+        <a href="searchAndSort.html">Searching and
+            Sorting</a><br>
+        <a href="recursion.html">Recursion</a><br>
+    </div>
+    <div class="homeicon">
+        <a href="index.html"><img alt="index" src="images/home-icon.png" style="width:50px;"></a>
+    </div>
+    <div class="topnav">
+        <a href="ResumeFinal.pdf" target="_blank">Resume</a>
+        <a href="projects.html">Projects</a>
+        <a class="active" href="tutorials.html">Tutorials</a>
+    </div>
+
+    <div class="content">
+        <div class="page-content">
+            <h1>Object-Oriented Programming (OOP)</h1>
+            <h2>OOP1 - Objects and Classes</h2>
+            <p>To understand Object-Oriented Programming (OOP), it's important to first understand what an Object is in
+                the context of Java and other programming languages.<br>
+                Think about any everyday object - a ball, a book- anything. All of these objects can be defined as
+                having attributes and behaviours. For example, a ball's attributes might include its diameter, weight
+                and name, while its behaviours might include being kicked, being thrown and getting inflated.
+            </p>
+            <h3>Classes</h3>
+            <p>This focus on standardization is how OOP stands out from other programming styles. They create
+                'blueprints' for objects that share attributes and behaviours, in the form of classes. By applying this
+                tool, OOP languages afford themselves a degree of reusability, being able to define all characteristics
+                of a class instance in a streamlined manner.</p>
+            <h3>Objects</h3>
+            <p>From these classes, Objects can be created. Objects can be thought of as an instance of a class - while
+                they possess their unique characteristics, the general format of an object still follows the design laid
+                out by the class.<br>
+                The creation of objects is done through a class constructor. The constructor instructs the compiler to
+                create a new object of the indicated class. Depending on the class's available constructors, some of the
+                Object's attributes may be defined using the constructor's arguments.</p>
+            <code><pre>//an example of a Ball class with its attributes and behaviours
+public class Ball {
+    private double diameter;
+    private String type;
+    public Ball(double dia, String thisType) { //the constructor's arguments allows the user to 
+                                               //define traits
+        diameter = dia;
+        type = thisType;
+    }
+
+    public static void main (String[] args) {
+        Ball a = new Ball (5.9, "basketball"); //defining a new basketball Ball object with a diameter of 5.9
+                                               //the reference for this variable is 'a'
+    }
+}
+                </pre></code>
+            <hr>
+            <h2>OOP2 - Inheritance</h2>
+            <p>Now that we've covered the basics of OOP, let's look at some of the more advanced capabilities it has.
+                In Java, there exists a concept of inheritance - classes inheriting attributes and methods from another
+                class. The inheriting class is called the subclass and the lending class is called the superclass.
+                Similar to how Objects possess the attributes and methods defined in their respective class, subclasses
+                possess the attributes and methods defined in the superclass. This offers the ability to optimize the
+                creation of similar classes.<br>
+                Think about how classes are used to create similar, yet minutely different objects. A soccer ball is
+                different from a basketball, yet both objects are still similar in shape and behaviour; therefore you
+                could create both using a generalized Ball class.<br>
+                In applying this principle to classes, the concept of class inheritance becomes easier to understand.
+                Sedans and SUVs are different, yet both are still quite similar in the traits they possess as Cars.
+                Since the SUV and Sedan objects will be significantly different, creating individual classes for either
+                type would be appropriate. However, it's a pain to have to retype all the generic methods for either
+                class, such as <code>drive()</code> and <code>park()</code>. To solve this problem, we can create a
+                superclass for Sedan and SUV
+                to inherit from - Car. Taking advantage of inheritance, the Car class can define the aforementioned
+                generic methods. Since SUV and Sedan are subclasses of Car, they have access to all the public fields
+                present in that class.<br>
+                Great - we've defined the basic attributes of the SUV and Sedan classes. However, these two classes now
+                only have the same methods and attributes. This is when <strong>overriding</strong> comes in. Subclasses
+                have the ability
+                to override superclass methods or add entirely new ones. For example, the Sedan being defined may have a
+                frunk - since this is exclusive to Sedans, it would be defined directly in the Sedan class, not giving
+                access to the SUV or Car class. The same adaptability also applies to attributes, where entirely new
+                attributes can be defined in the subclasses, or different values can be defined in the constructor.<br>
+                See the code below for an example of how this example would look in code:<br></p>
+            <code><pre>public class Car {
+    private int gasLevel;
+    private String make;
+    private int maxSpeed;
+    public Car(String make, int maxSpeed) {
+        gasLevel = 100;
+        this.make = make;
+        this.maxSpeed = maxSpeed;
+    }
+    public void drive() {
+        /* implementation not shown */
+    }
+    public void park() {
+        /* implementation not shown */
+    }
+}
+
+//since Sedan inherits from Car, it has access to the drive() and park methods()
+public class Sedan extends Car { //extends keyword indicates inheritance
+    boolean isTwoSeater;
+    public Sedan (String make, int maxSpeed, boolean isTwoSeater) {
+        super(make, maxSpeed); //call to two-argument constructor of superclass Car
+        this.isTwoSeater = isTwoSeater;
+    }
+    public void openFrunk() { //this method is accessible only to Sedan Objects
+        /*implementation not shown*/
+    }
+}
+
+//since SUV inherits from Car, it has access to the drive() and park methods()
+public class SUV extends Car { //extends keyword indicates inheritance
+    boolean isSevenSeater;
+    public Sedan (String make, int maxSpeed, boolean isSevenSeater) {
+        super(make, maxSpeed); //call to two-argument constructor of superclass Car
+        this.isSevenSeater = isSevenSeater;
+    }
+    public void layDownBackseat() {
+        /*implementation not shown*/
+    }
+
+    public void park() { //this method overrides the park() method of the Car class, 
+                         //so when park() is called to an SUV object, it calls this method.
+        /*implementation not shown*/
+    }
+}</pre></code>
+            <p>A common mistake made when using inheritance is not understanding the relationship between the
+                classes. Parent classes should be used to define broader traits for the subclasses, which can then be
+                altered to fit the specific needs of the subclasses.</p>
+            <hr>
+            <h2>OOP3 - Polymorphism, Abstract Classes and Interfaces</h2>
+            <h3>Polymorphism</h3>
+            <p>
+                Now that we have an understanding of inheritance, it's important to be able to understand the exact
+                behaviours of a program when a method is called.<br>
+                The word polymorphism has Greek roots - poly means many, and morph means change or form. <br>
+                Now, we can translate this into programming terms. In Java, polymorphism refers to the compiler's
+                decision to choose between methods with the same name.
+                This is achieved by examining the different methods in the classes, as well as the reference variable.
+                Take the example class Shape, for example. There are many different types of shapes - circles, squares,
+                etc. While one could have individual methods to draw each shape (<code>drawCircle()</code>,
+                <code>drawSquare()</code>), it would be quite repetitive and provides little room for dynamic method
+                calling. <br>
+                Instead, by making Circle and Square subclasses of Shape and overriding the <code>draw()</code> method
+                in each of the classes, it becomes much easier to dynamically call the <code>draw()</code> method for
+                each shape. For example, the compiler could use the generic call <code>shape.draw()</code>, and defining
+                shape as different Objects of different subclasses would allow it to decide which specific method to
+                call. If, for instance, the shape reference were an object of the Square class, the compiler would call
+                the specific <code>draw()</code> method found in the Square class.
+            </p>
+
+            <code><pre>public static void main (String [] args) {
+    Shape a = null; //declare superclass object a. Since a is of the superclass, 
+                    //it can be downcast down to any of its subclasses.
+    a = new Square(); //intialize a as a Square object
+    a.draw(); //this calls the draw() method found in Square
+
+    a = new Circle(); //re-initialize as a Circle Object
+    a.draw(); //this calls the draw() method found in Circle
+}</pre></code>
+            <h3>Abstract Classes</h3>
+            <p>
+                Abstract classes are a special type of class in Java that provide an outline for an inheriting class's
+                attributes and methods. They are defined using the <strong>abstract</strong> keyword.<br>
+                Abstract classes are useful for providing outlines for subclasses that are to contain specific
+                specialized methods but also should have some shared functionality. Let's examine Shape as an abstract
+                class, with Circle and Square as its subclasses. <br>
+                As Shapes, Circle and Square Objects should be able to have and return, for example, the number of sides
+                that each shape possesses. Since the functionality for both of these methods does not change across the
+                two classes, this can be a definite method of Shape, the abstract class. <br>
+                However, the two classes also have similar methods with different functionalities, an example of which
+                would be area. The formulas for the area of each of these shapes vary, so they would have to be defined
+                separately in each subclass. Additionally, it is impossible for Shape to possess a generic method to
+                return area, as shapes vary so wildly that any generic method would be ineffective. With these
+                characteristics in mind, the <code>getArea()</code> method would be declared as abstract in the
+                superclass. But what, exactly, does this do?<br>
+                Methods that are declared as abstract prompt the programmer to define them definitely in the
+                subclasses. If the abstract methods are not overridden in the subclasses, the compiler throws an error.
+                This ensures that the specialized methods are defined for each object type.<br>
+                Also remember that, though abstract classes can possess constructors, objects cannot be initialized as
+                objects directly of the abstract class.<br>
+                See the code below for an implementation of the Shape example:
+            </p>
+            <code><pre>abstract class Shape {
+    private int numOfSides;
+    private String name;
+    public Shape(int numOfSides, String name) {
+        this.numOfSides = numOfSides;
+        this.name = name;
+    }
+
+    public String getName() { //all Shape objects have identical implementations for
+                              // getting Name, so it can be defined in the abstract class itself
+        return name;
+    }
+
+    public String getName() { //all Shape objects have identical implementations for
+                              // getting numOfSides, so it can be defined in the abstract class itself
+        return numOfSides;
+    }
+
+    abstract double getArea(); //since all implementations will be different, 
+                                   //getArea() is declared abstract
+}
+
+public class Circle extends Shape {
+    private double radius; //the radius field is unique to Circle
+    public Circle(int sideCount, double radius) {
+        super(0, "Circle");
+        this.radius = radius;
+    }
+
+    public double getArea() { //overrides abstract getArea(), defines own functionality
+        return radius * radius * Math.PI;
+    }
+}
+
+public class Square extends Shape {
+    private double width; //the width field is unique to Square
+    public Square(int sideCount, double width) {
+        super(4, "Square");
+        this.width * width;
+    }
+
+    public double getArea() { //overrides abstract getArea(), defines own functionality
+        return width * width;
+    }
+}</pre></code>
+
+            <h3>Interfaces</h3>
+            <p>
+                Interfaces are a form of contract that defines the implementing class's functionality. The keyword for
+                utilizing interfaces is <strong>implements</strong>.<br>
+                Interfaces define a set of behaviours that must be fulfilled by its implementing classes. For example,
+                let us examine the example of an Animal interface, with Dog and Cat implementing it. As animals, both
+                Dogs and Cats must have functionality for sleeping and eating. Without defining these behaviours the
+                Objects of these classes would not have the appropriate functionality for an animal.<br>
+                To ensure that these requirements of an Animal are fulfilled, in the interface Animal, the methods
+                <code>eat()</code> and <code>sleep()</code> can be defined. Though they will not have specific
+                functionality in the interface itself, their presence creates a checklist that all implementing classes
+                must fulfill - that is, all implementing classes must have their own defined implementation for
+                <code>eat()</code> and <code>sleep()</code>.<br>
+                This requirement creates a 'blueprint' for which to create classes. Ensuring that all intended
+                behaviours are present through an interface creates uniformity across different classes.<br>
+                It is also important to note that interfaces should contain only empty methods and final fields.
+                Remember - it's a blueprint, not a final design.<br>
+                See below for an example implementation of an interface:
+            </p>
+            <code><pre>public interface AnimalDefiner {
+    void sleep(); //by defining these methods in the interface, it ensures that all 
+                  //implementing classes will contain implementations for these methods.
+    void eat();
+}
+
+//by defining the sleep() and eat() methods found in the implemented Animal interface, Dog 
+//has fulfilled the 'blueprint' and the compiler will not throw an error
+public class Dog implements Animal {
+    public void eat() { 
+        /*implementation not shown*/
+    }
+
+    public void sleep() {
+        /*implementation not shown*/
+    }
+}
+
+//by defining the sleep() and eat() methods found in the implemented Animal interface, Cat 
+//has fulfilled the 'blueprint' and the compiler will not throw an error
+public class Cat implements Animal {
+    public void eat() {
+        /*implementation not shown*/
+    }
+
+    public void sleep() {
+        /*implementation not shown*/
+    }
+}</pre></code>
+            <p>A common mistake made when using interfaces and abstract classes is not being careful of what, exactly,
+                the purpose of each interface or class is. They exist to serve as templates - a set of criteria that an
+                implementing class <strong>must</strong> fulfill. Failing to understand this requirement can results in
+                programs with errors due to incomplete classes.</p>
+
+            <h4>Citations</h4>
+            <p>ICS4U course content; Ms. Krasteva, Valentina<br>
+                <a
+                    href="https://docs.oracle.com/javase/tutorial/java/concepts/index.html">https://docs.oracle.com/javase/tutorial/java/concepts/index.html</a>
+            </p>
+        </div>
+    </div>
+    <nobr>
+        <div class="footer">
+            <div class="footer-bottom"><strong>&lt;&lt;&lt; &copy; Julia Peng 2024 &gt;&gt;&gt;</strong>
+                <a href="https://www.linkedin.com/in/juliaspeng" target="_blank">
+                    <img alt="linkedin" src="images/linkedin-icon.svg" style="width:40px"></a>
+                <a href="https://github.com/julia-peng" target="_blank">
+                    <img alt="github" src="images/github-icon.svg" style="width:40px"></a>
+                <a href="https://www.instagram.com/julia__peng" target="_blank">
+                    <img alt="instagram" src="images/instagram-icon.svg" style="width:40px"></a>
+            </div>
+        </div>
+    </nobr>
+</body>
+
+</html>
